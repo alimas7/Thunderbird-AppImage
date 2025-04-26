@@ -16,7 +16,7 @@ jobs:
       matrix:
         version: ['3.8']
     steps:
-    - uses: actions/checkout@v3.5.3
+    - uses: actions/checkout@v4
 
     - name: Download Thunderbird
       run: |
@@ -54,7 +54,7 @@ jobs:
        
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v4
       with:
         name: thunderbird-continuous-x86_64.AppImage
         path: 'thunderbird/dist'
