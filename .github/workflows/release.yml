@@ -23,11 +23,11 @@ jobs:
         sudo apt install -y libxml2-utils
         mkdir thunderbird
         cd thunderbird
-        wget https://www.thunderbird.net/en-US/about -O index.html
+        wget https://www.thunderbird.net/en-US/thunderbird/all/ -O download.html
         echo "Downloading"
-        
-        wget $(xmllint --html index.html --xpath '/html/body/main/section[4]/section/article[2]/section[1]/main/aside/div/ul/li[4]/a' 2>/dev/null | grep -Po 'href="\K[^"]*' | sed 's|\&amp;|\&|g') -O thunderbird.tar.bz2
-        tar -xf thunderbird.tar.bz2
+
+        wget $(grep 'Download for Linux 64-bit in English (US)' download.html | sed 's|.*href="\(.*\)" .*|\1|') -O TB.txz
+        tar xf TB.txz
         cd ..
 
     - name: Patch to include files
