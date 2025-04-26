@@ -42,6 +42,7 @@ jobs:
     
     - name: Patch AppImage
       run: |
+        apt install libfuse2
         cd thunderbird
         wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
         chmod +x *.AppImage
